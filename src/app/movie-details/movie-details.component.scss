@@ -1,0 +1,32 @@
+$primary-color: #f119a9;
+$primary-light: #e783c5;
+$background-color: #373535;
+
+.movie-card {
+    background-color: $background-color;
+    border-radius: 10px;
+
+    mat-card-header {
+        padding-bottom: 0;
+        text-align: center;
+
+        mat-card-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: $primary-color;
+            margin-bottom: 10px;
+        }
+
+        mat-card-subtitle {
+            font-size: 1em;
+            color: white;
+            margin-bottom: 5px;
+
+            .movie-label {
+                color: aqua;
+                font-weight: bold;
+                line-height: 1.5;
+            }
+        }
+    }
+}

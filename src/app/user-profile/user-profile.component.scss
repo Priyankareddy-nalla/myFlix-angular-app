@@ -1,0 +1,119 @@
+$primary-color: #f119a9;
+$primary-light: #e783c5;
+$secondary-color: rgb(65, 9, 161);
+$background-color: #161212;
+
+.main-page {
+    background-color: $background-color;
+    margin-top: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+//responsive 
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+mat-card {
+    margin: 10px;
+    background: rgb(29, 26, 29);
+    color: white;
+    border-radius: 20px;
+    max-width: 600px;
+    box-sizing: border-box;
+
+    img {
+        border-radius: 10px;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        object-fit: fill;
+    }
+
+    mat-card-header {
+        text-align: center;
+
+        mat-card-title {
+            font-size: 1.0em;
+            color: #bbbbbb;
+        }
+    }
+
+    mat-card-actions {
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            color: $primary-color;
+
+            &:hover {
+                background: rgba(233, 30, 99, 0.1);
+            }
+        }
+
+        mat-icon {
+            color: $primary-color;
+
+            &:hover {
+                cursor: pointer;
+                color: $primary-light;
+            }
+        }
+    }
+}
+
+mat-card-title,
+mat-card-subtitle,
+mat-card-content {
+    color: rgb(246, 226, 226);
+}
+
+mat-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+mat-card-subtitle,
+mat-card-content {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .movies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .movies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: white;
+}

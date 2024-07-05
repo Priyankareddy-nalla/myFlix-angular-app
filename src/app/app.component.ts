@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FetchApiDataService } from './fetch-api-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myFlix-Angular';
+
+  constructor( public fetchApidata: FetchApiDataService){}
+
 }

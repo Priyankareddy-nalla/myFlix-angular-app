@@ -1,0 +1,50 @@
+$primary-color: #f119a9;
+$primary-light: #e783c5;
+$background-color: #161212;
+
+.navbar {
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $background-color;
+    padding: 10px 10px;
+    z-index: 1000;
+
+    .navbar-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        padding: 0;
+        width: 100%;
+
+        .navbar-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: $primary-color;
+        }
+
+        .spacer {
+            flex: 1 1 auto;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        .custom-icon {
+            margin-right: 8px;
+            color: #fff;
+        }
+
+        .logout-button {
+            margin-right: 20px;
+            background-color: #fff;
+
+            mat-icon {
+                color: $background-color;
+            }
+        }
+    }
+}
