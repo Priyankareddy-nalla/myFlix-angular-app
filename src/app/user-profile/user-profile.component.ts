@@ -101,7 +101,7 @@ export class UserProfileComponent {
   }
 
   loadFavoriteMovies(): void {
-    const setToken = (localStorage.getItem('token'));
+    const setToken = localStorage.getItem('token');
 
     this.fetchApiData.getAllMovies(setToken).subscribe((resp: any) => {
       const allMovies = resp.map((movie: any) => {

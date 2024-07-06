@@ -58,7 +58,7 @@ export class CommonService {
 
   // get all movies
   getMovies(): void {
-    const setToken = (localStorage.getItem('token'));
+    const setToken = localStorage.getItem('token');
 
     this.fetchApiData.getAllMovies(setToken).subscribe((resp: any) => {
       this.movies = resp;
