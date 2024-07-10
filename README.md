@@ -16,6 +16,7 @@ This project involves developing the client-side application for myFlix, based o
 * ng add angular-cli-ghpages
 
 ## Link to App
+https://priyankareddy-nalla.github.io/myFlix-angular-app/
 
 
 
