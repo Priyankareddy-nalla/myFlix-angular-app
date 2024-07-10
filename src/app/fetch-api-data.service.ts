@@ -39,7 +39,7 @@ export class FetchApiDataService {
   // API call for user details endpoint
   getUserDetails(): Observable<any> {
     // const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users/' 
+    return this.http.get(apiUrl + 'users/'
       // headers: new HttpHeaders({
       //   Authorization: 'Bearer ' + token,
       // })
@@ -141,12 +141,12 @@ export class FetchApiDataService {
   // API call to get all movies
   getAllMovies(token: any): Observable<any> {
     // const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies',{
+    return this.http.get(apiUrl + 'movies', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
         })
-      }).pipe(map(this.extractResponseData),
+    }).pipe(map(this.extractResponseData),
       catchError(this.handleError)
     );
   }

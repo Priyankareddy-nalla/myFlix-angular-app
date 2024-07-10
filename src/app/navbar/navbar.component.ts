@@ -3,6 +3,7 @@ import { NavbarService } from '../navbar.service';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { FetchApiDataService } from '../fetch-api-data.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnDestroy {
 
 
   constructor(private navbarService: NavbarService,
+    public fetApidata: FetchApiDataService,
     public snackBar: MatSnackBar,
     public router: Router) {
     this.subscription = this.navbarService.showNavbar.subscribe((value) => {
@@ -28,17 +30,14 @@ export class NavbarComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
-
-
   logoutUser(): void {
     localStorage.removeItem('user');
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
-    this.router.navigate(['welcome']);
+    alert("You are going to log out from myFlix.");
+    this.router.navigate(['welcome']).then(() => {
+      window.location.reload();
+    });
   }
-
 }
-
-
-
 
