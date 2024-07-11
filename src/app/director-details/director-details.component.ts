@@ -24,8 +24,6 @@ export class DirectorDetailsComponent implements OnInit {
     const setToken = localStorage.getItem('token');
     this.fetchApiData.getDirectorDetails(setToken, this.data.name).subscribe((resp) => {
       this.directorDetails = resp;
-      console.log("details displayed"+this.getDirectorDetails);
-      console .log(resp);
     });
   }
 

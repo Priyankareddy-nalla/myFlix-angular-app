@@ -62,7 +62,6 @@ export class CommonService {
 
     this.fetchApiData.getAllMovies(setToken).subscribe((resp: any) => {
       this.movies = resp;
-      console.log(this.movies);
       // Update favorite movies after fetching all movies
       this.updateFavoriteMovieList();
       return this.movies;
@@ -76,7 +75,6 @@ export class CommonService {
     this.fetchApiData.getUserByUsername(loggeduser).subscribe((user: any) => {
       // Filter movies based on user's favorite movie IDs
       this.favoriteMovieList = this.movies.filter(m => user.FavoriteMovies.includes(m._id));
-      console.log("favlis:" + this.favoriteMovieList);
     });
   }
 
@@ -98,7 +96,6 @@ export class CommonService {
 
     this.fetchApiData.addFavoriteMovie(loggeduser, movieId, setToken).subscribe(
       (result) => {
-        console.log(result);
         this.snackBar.open('Added to favorites', 'OK', {
           duration: 2000
         });
@@ -121,7 +118,6 @@ export class CommonService {
 
     this.fetchApiData.deleteFavoriteMovie(loggeduser, movieId, setToken).subscribe(
       (result) => {
-        console.log(result);
         this.snackBar.open('Removed from favorites', 'OK', {
           duration: 2000
         });

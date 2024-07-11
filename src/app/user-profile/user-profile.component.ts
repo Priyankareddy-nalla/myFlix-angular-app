@@ -39,7 +39,6 @@ export class UserProfileComponent {
       data => {
         this.userDetails = data;
         this.fetchFavoriteMovies(data.FavoriteMovies);
-        console.log(" Data  " + data);
       },
       error => {
         console.error('Error fetching user details', error);
@@ -70,7 +69,6 @@ export class UserProfileComponent {
     const setToken = (localStorage.getItem('token'));
     this.fetchApiData.updateUser(loggeduser, this.userData, setToken).subscribe(
       (result) => {
-        console.log(result);
         this.snackBar.open('User updated successfully!', 'OK', {
           duration: 2000
         });
@@ -92,7 +90,6 @@ export class UserProfileComponent {
     this.fetchApiData.deleteUser(loggedUser, setToken)
       .subscribe(
         (response) => {
-          console.log('User deleted successfully:', response);
         },
         (error) => {
           console.error('Error deleting user:', error);

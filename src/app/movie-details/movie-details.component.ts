@@ -27,7 +27,6 @@ export class MovieDetailsComponent implements OnInit{
     const setToken = localStorage.getItem('token');
     this.fetchApiData.getOneMovie(setToken,this.data.name).subscribe((result) => {
       this.movieDetails= result;
-      console.log(result);
     })
   }
 

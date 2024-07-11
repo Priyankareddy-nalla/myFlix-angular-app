@@ -23,7 +23,6 @@ export class FetchApiDataService {
 
   // API call for user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
       catchError(this.handleError)
     );
@@ -73,7 +72,6 @@ export class FetchApiDataService {
 
   // API call to delete user 
   deleteUser(username: any, token: any): Observable<any> {
-    console.log("Api Url" + apiUrl + 'users/' + username);
     this.dialog.closeAll();
     alert("deleted " + username);
     this.router.navigate(['welcome']);
@@ -90,7 +88,6 @@ export class FetchApiDataService {
 
   // API call to add a movie to a user's favorite list
   addFavoriteMovie(username: any, movieId: any, token: any): Observable<any> {
-    console.log("Api Url " + apiUrl + 'users/' + username + '/movies/' + movieId);
     return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieId, {}, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
@@ -104,7 +101,6 @@ export class FetchApiDataService {
 
   // API call to delete a movie to a user's favorite list
   deleteFavoriteMovie(username: any, movieId: any, token: any): Observable<any> {
-    console.log("Api Url " + apiUrl + 'users/' + username + '/movies/' + movieId);
     return this.http.delete(apiUrl + 'users/' + username + '/movies/' + movieId, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
@@ -118,7 +114,6 @@ export class FetchApiDataService {
 
   // API call to get details of movies by genre
   getGenreDetails(token: any, genreName: string): Observable<any> {
-    console.log("Api Url " + apiUrl + 'movies/genre/' + genreName);
     return this.http.get(apiUrl + 'movies/genre/' + genreName, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
@@ -129,7 +124,6 @@ export class FetchApiDataService {
 
   // API call to get details of a director
   getDirectorDetails(token: any, directorName: string): Observable<any> {
-    console.log("Api Url " + apiUrl + 'movies/directors/' + directorName);
     return this.http.get(apiUrl + 'movies/directors/' + directorName, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
@@ -155,7 +149,6 @@ export class FetchApiDataService {
 
   // API call to get details of a single movie by title
   getOneMovie(token: any, title: string): Observable<any> {
-    console.log("Api Url " + apiUrl + 'movies/' + title);
     return this.http.get(apiUrl + 'movies/' + title, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,

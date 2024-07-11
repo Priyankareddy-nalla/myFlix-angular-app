@@ -37,7 +37,6 @@ export class UserLoginFormComponent {
       localStorage.setItem('token', result.token);
       // user Login
       this.dialogRef.close(); // This will close the modal on success!
-      console.log(result);
       this.snackBar.open('user login successfully!', 'OK', {
         duration: 2000
       });

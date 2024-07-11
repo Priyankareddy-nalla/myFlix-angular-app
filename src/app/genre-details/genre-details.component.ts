@@ -25,8 +25,6 @@ export class GenreDetailsComponent implements OnInit {
     const setToken = localStorage.getItem('token');
     this.fetchApiData.getGenreDetails(setToken, this.data.name).subscribe((resp) => {
       this.genreDetails = resp;
-      console.log("details displayed"+this.genreDetails);
-      console .log(resp);
     });
   }
 
