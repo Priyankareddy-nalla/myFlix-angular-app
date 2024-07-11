@@ -6,21 +6,37 @@ import { GenreDetailsComponent } from './genre-details/genre-details.component';
 import { DirectorDetailsComponent } from './director-details/director-details.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
+/**
+ * Common service for handling movie-related operations and displaying dialogs.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+  /**
+   * List of all movies.
+   */
   movies: any[] = [];
+  /**
+   * List of user's favorite movies.
+   */
   favoriteMovieList: any[] = [];
 
-
+  /**
+   * CommonService constructor
+   * @param dialog - Service to handle dialogs.
+   * @param snackBar - Service to display notifications.
+   * @param fetchApiData - Fetch data from API.
+   */
   constructor(public dialog: MatDialog,
     public snackBar: MatSnackBar,
     public fetchApiData: FetchApiDataService
-
   ) { }
 
-
+  /**
+   * Opens a dialog to display genre details.
+   * @param genre - The genre data to display.
+   */
   openGenreDialog(genre: { Name: string; Description: string }): void {
     this.dialog.open(GenreDetailsComponent, {
       data: {
@@ -31,7 +47,10 @@ export class CommonService {
     });
   }
 
-
+  /**
+   * Opens a dialog to display director details.
+   * @param director - The director data to display.
+   */
   openDirectorDialog(dircetor: { Name: string; Bio: string; Birth: any }): void {
     this.dialog.open(DirectorDetailsComponent, {
       data: {
@@ -44,7 +63,10 @@ export class CommonService {
     });
   }
 
-
+  /** 
+   * Opens a dialog to display movie details.
+   * @param movie - The movie data to display.
+   */
   openMovieDetailsDialog(movie: { Title: string; Description: string }): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
@@ -56,7 +78,9 @@ export class CommonService {
   }
 
 
-  // get all movies
+  /**
+   * Fetche all movies from the API and updates the movie list.
+   */
   getMovies(): void {
     const setToken = localStorage.getItem('token');
 
@@ -69,8 +93,9 @@ export class CommonService {
     });
   }
 
-  // update Fav movies list
-  updateFavoriteMovieList(): void {
+  /** 
+   * Updates the favorite movie list based on the user's favorite movies.
+   */  updateFavoriteMovieList(): void {
     const loggeduser = localStorage.getItem('userName');
     this.fetchApiData.getUserByUsername(loggeduser).subscribe((user: any) => {
       // Filter movies based on user's favorite movie IDs
@@ -78,10 +103,19 @@ export class CommonService {
     });
   }
 
+  /**
+   * Checks if a movie is in the user's favorite movie list.
+   * @param movieId - The ID of the movie to check.
+   * @returns True if the movie is a favorite, otherwise false.
+   */
   isFavorite(movieId: any): boolean {
     return this.favoriteMovieList.some(movie => movie._id === movieId);
   }
 
+  /**
+   * Toggles the favorite status of a movie.
+   * @param movie - The movie to toggle favorite status for.
+   */
   toggleFavorite(movie: any): void {
     if (this.isFavorite(movie._id)) {
       this.removeFavMovie(movie._id);
@@ -90,6 +124,10 @@ export class CommonService {
     }
   }
 
+  /**
+   * Adds a movie to the user's favorite list.
+   * @param movieId - The ID of the movie to add.
+   */
   addFavMovie(movieId: any): void {
     const loggeduser = localStorage.getItem('userName');
     const setToken = localStorage.getItem('token');
@@ -112,6 +150,10 @@ export class CommonService {
     );
   }
 
+  /**
+   * Removes a movie from the user's favorite list.
+   * @param movieId - The ID of the movie to remove.
+   */
   removeFavMovie(movieId: any): void {
     const loggeduser = localStorage.getItem('userName');
     const setToken = localStorage.getItem('token');

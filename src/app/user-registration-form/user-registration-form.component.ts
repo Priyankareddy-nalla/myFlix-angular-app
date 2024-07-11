@@ -6,23 +6,45 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 // This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * User-registration form component
+ */
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
   styleUrl: './user-registration-form.component.scss'
 })
-export class UserRegistrationFormComponent  implements OnInit{
+export class UserRegistrationFormComponent implements OnInit {
+  /**
+   * Object to hold the user's registration data.
+   * Properties:
+   * - `Username`{string}: The user's username.
+   * - `Password`{string}: The user's password.
+   * - `Email`{string}: The user's email address.
+   * - `Birthday`{date}: The user's birthdate.
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+  /**
+   * user-registration form constructor
+   * @param fetchApiData - Fetch data from API.
+   * @param dialogRef - Dailog reference to open.
+   * @param snackBar - Show notifications in snackbar.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar) { }
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   */
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Sends the registration form inputs to the backend to create a new user.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {

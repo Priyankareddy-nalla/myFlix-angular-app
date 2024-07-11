@@ -29,7 +29,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
-
+/**
+ * Application routes.
+ * Defines the routes for different components in the application.
+ */
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -38,7 +41,9 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
-
+/**
+ * Root module of the application.
+ */
 @NgModule({
   declarations: [
     AppComponent,
